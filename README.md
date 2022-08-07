@@ -16,8 +16,8 @@ Counters can be used for anything that counts.The following are the most common 
 - Alarm
 - Analog to Digital Conversion
 - Triangular Wave Generator
-- 
-## Blocked Diagram of PWM GENERATOR
+
+## Blocked Diagram of Counter
 
 <p align="center">
   <img width="600" length ="500" src="/images/counter.png">
@@ -107,3 +107,10 @@ $   yosys>    show
 
 - B Sathiya Naraayanan, IMT2020534, International Institute of Information Technology, Bangalore  ,Sathiya.Naraayanan@iiitb.ac.in
 - Kunal Ghosh, Director, VSD Corp. Pvt. Ltd. kunalghosh@gmail.com
+
+## References
+
+- [Fastlad tutorial](https://www.instructables.com/Using-Falstads-Circuit-Simulator/)
+- [Counters tutorial](https://www.youtube.com/watch?v=iaIu5SYmWVM&list=PLBlnK6fEyqRjMH3mWf6kwqiTbT798eAOm&index=179)
+- [Verilog](https://www.fpga4student.com/)
+
