@@ -71,7 +71,6 @@ https://github.com/YosysHQ/yosys
 
 - note: Identify the .lib file path in cloned folder and change the path in highlighted text to indentified path
 
-<img width="1119" alt="image" src="https://user-images.githubusercontent.com/110079648/182905357-064fec34-3c2b-4997-a0b7-30453f505ddd.png">
 
 
 
