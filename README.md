@@ -104,14 +104,28 @@ By running the following command in terminal,we can get the required ouput
 
 ### Output
 <p align="center">
-  <img  src="/O1/gtkwave_counter.png">
+  <img  src="/images/gsl.png">
 </p>
 
 <p align="center">
-  <img  src="/O1/gtkwave_counter.png">
+  <img width="600" length ="500"  src="/images/stat.png">
 </p>
 
 ## Gate level Simulation
+
+GLS stands for gate level simulation. When we write the RTL code, we test it by giving it some stimulus through the testbench and check it for the desired specifications. Similarly, we run the netlist as the design under test (dut) with the same testbench. Gate level simulation is done to verify the logical correctness of the design after synthesis. Also, it ensures the timing of the design.
+Commands to run the GLS are given below.
+```
+iverilog -DFUNCTIONAL -DUNIT_DELAY=#1 iiitb_counter_netlist.v iiitb_counter_tb.v primitives.v sky130_fd_sc_hd.v 
+./a.out
+gtkwave iiitb_counter_tb.vcd
+
+```
+Using the created vcd file,we can get the functional characteristics using gtkwave,which is as follows
+<p align="center">
+  <img  src="/images/gtkwave_counter_synth.png">
+</p>
+
 ## Contributors 
 
 - **B Sathiya Naraayanan** 
