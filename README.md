@@ -116,7 +116,7 @@ By running the following command in terminal,we can get the required ouput
 GLS stands for gate level simulation. When we write the RTL code, we test it by giving it some stimulus through the testbench and check it for the desired specifications. Similarly, we run the netlist as the design under test (dut) with the same testbench. Gate level simulation is done to verify the logical correctness of the design after synthesis. Also, it ensures the timing of the design.
 Commands to run the GLS are given below.
 ```
-iverilog -DFUNCTIONAL -DUNIT_DELAY=#1 iiitb_counter_netlist.v iiitb_counter_tb.v primitives.v sky130_fd_sc_hd.v 
+iverilog -DFUNCTIONAL -DUNIT_DELAY=#1 iiitb_counter_netlist.v iiitb_counter_tb.v verilog_model/primitives.v verilog_model/sky130_fd_sc_hd.v 
 ./a.out
 gtkwave iiitb_counter_tb.vcd
 
