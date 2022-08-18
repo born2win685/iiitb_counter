@@ -60,7 +60,7 @@ Simulation Results
 
 ## Synthesis of verilog code
 
-#### About Yosys
+### About Yosys
 Yosys is a framework for Verilog RTL synthesis. It currently has extensive Verilog-2005 support and provides a basic set of synthesis algorithms for various application domains.
 
 - more at https://yosyshq.net/yosys/
@@ -71,25 +71,47 @@ https://github.com/YosysHQ/yosys
 
 - note: Identify the .lib file path in cloned folder and change the path in highlighted text to indentified path
 
+ 
+
+### Synthesising process
+
+The commands to run synthesis in yosys are given below. First create an yosys script `yosys_run.sh` and paste the below commands.
+```
+read_liberty -lib lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+# read design
+
+read_verilog iiitb_counter.v
+
+# generic synthesis
+synth -top bcd
+
+# mapping to mycells.lib
+dfflibmap -liberty lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+clean
+flatten
+# write synthesized design
+write_verilog iiitb_counter_netlist.v
+stat
+show
+```
 
 
-
-#### to synthesize
+By running the following command in terminal,we can get the required ouput
 ```
-$   yosys
-$   yosys>    script yosys_run.sh
+ yosys -s yosys_run.sh
 ```
 
-#### to see diffarent types of cells after synthesys
-```
-$   yosys>    stat
-```
-#### to generate schematics
-```
-$   yosys>    show
-```
+### Output
+<p align="center">
+  <img  src="/O1/gtkwave_counter.png">
+</p>
 
+<p align="center">
+  <img  src="/O1/gtkwave_counter.png">
+</p>
 
+## Gate level Simulation
 ## Contributors 
 
 - **B Sathiya Naraayanan** 
