@@ -126,6 +126,193 @@ Using the created vcd file,we can get the functional characteristics using gtkwa
   <img  src="/images/gtkwave_counter_synth.png">
 </p>
 
+## Layout
+
+### 7.3 Openlane
+OpenLane is an automated RTL to GDSII flow based on several components including OpenROAD, Yosys, Magic, Netgen, CVC, SPEF-Extractor, CU-GR, Klayout and a number of custom scripts for design exploration and optimization. The flow performs full ASIC implementation steps from RTL all the way down to GDSII.
+
+more at https://github.com/The-OpenROAD-Project/OpenLane
+#### Installation instructions 
+```
+$   apt install -y build-essential python3 python3-venv python3-pip
+```
+Docker installation process:
+```
+$ sudo apt-get remove docker docker-engine docker.io containerd runc (removes older version of docker if installed)
+
+$ sudo apt-get update
+
+$ sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+    
+$ sudo mkdir -p /etc/apt/keyrings
+
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+$ echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  
+$ sudo apt-get update
+
+$ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+$ apt-cache madison docker-ce (copy the version string you want to install)
+
+$ sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> containerd.io docker-compose-plugin (paste the version string copies in place of <VERSION_STRING>)
+
+$ sudo docker run hello-world (If the docker is successfully installed u will get a success message here)
+```
+
+goto home directory->
+```
+$   git clone https://github.com/The-OpenROAD-Project/OpenLane.git
+$   cd OpenLane/
+$   sudo make
+$   sudo make test
+```
+It takes a while to complete.If it ends with **Basic test passed** ,then openLane is installed succesfully.
+
+### 7.4 Magic
+Magic is a venerable VLSI layout tool, written in the 1980's at Berkeley by John Ousterhout, now famous primarily for writing the scripting interpreter language Tcl. Due largely in part to its liberal Berkeley open-source license, magic has remained popular with universities and small companies. The open-source license has allowed VLSI engineers with a bent toward programming to implement clever ideas and help magic stay abreast of fabrication technology. However, it is the well thought-out core algorithms which lend to magic the greatest part of its popularity. Magic is widely cited as being the easiest tool to use for circuit layout, even for people who ultimately rely on commercial tools for their product design flow.
+
+More about magic at http://opencircuitdesign.com/magic/index.html
+
+Run following commands one by one to fulfill the system requirement.
+
+```
+$   sudo apt-get install m4
+$   sudo apt-get install tcsh
+$   sudo apt-get install csh
+$   sudo apt-get install libx11-dev
+$   sudo apt-get install tcl-dev tk-dev
+$   sudo apt-get install libcairo2-dev
+$   sudo apt-get install mesa-common-dev libglu1-mesa-dev
+$   sudo apt-get install libncurses-dev
+```
+**To install magic**
+goto home directory
+
+```
+$   git clone https://github.com/RTimothyEdwards/magic
+$   cd magic/
+$   ./configure
+$   sudo make
+$   sudo make install
+```
+We can check if it is installed properly by typing **magic** in the  terminal.
+
+### 7.5 Generating Layout with existing library cells
+
+
+Open terminal in home directory
+```
+$   cd OpenLane/
+$   cd designs/
+$   mkdir iiitb_counter
+$   cd iiitb_counter/
+$   touch config.json
+$   mkdir src
+$   cd src/
+$   touch iiitb_counter.v
+```
+After creating those files,copy the iiitb_counter.v file used prior to the one created in src.Type the following in the config.json
+```
+{
+    "DESIGN_NAME": "iiitb_counter",
+    "VERILOG_FILES": "dir::src/iiitb_counter.v",
+    "CLOCK_PORT": "clkin",
+    "CLOCK_NET": "clkin",
+    "GLB_RESIZER_TIMING_OPTIMIZATIONS": true,
+    "CLOCK_PERIOD": 10,
+    "PL_TARGET_DENSITY": 0.7,
+    "FP_SIZING" : "relative",
+    "pdk::sky130*": {
+        "FP_CORE_UTIL": 30,
+        "scl::sky130_fd_sc_hd": {
+            "FP_CORE_UTIL": 20
+        }
+    },
+    
+    "LIB_SYNTH": "dir::src/sky130_fd_sc_hd__typical.lib",
+    "LIB_FASTEST": "dir::src/sky130_fd_sc_hd__fast.lib",
+    "LIB_SLOWEST": "dir::src/sky130_fd_sc_hd__slow.lib",
+    "LIB_TYPICAL": "dir::src/sky130_fd_sc_hd__typical.lib",  
+    "TEST_EXTERNAL_GLOB": "dir::../iiitb_counter/src/*"
+
+
+}
+```
+Get back to Openlane directory and do the following.
+```
+$   sudo make mount
+%   ./flow.tcl -design iiitb_pwm_gen
+```
+We are going to use magic for viewing the layout.Type the following in terminal.
+```
+$   cd OpenLane/designs/iiitb_counter/run
+$   ls
+```
+select most recent run directoy from list
+```
+$  cd RUN_2022.09.01_06.56.46
+```
+run following instruction
+```
+$   cd results/final/def
+```
+
+```
+$ magic -T /home/sathiyanarayanan/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech read ../../tmp/merged.nom.lef def read iiitb_counter.def &
+  ```
+layout will be open in new window
+#### layout - without sky130_vsdinv
+
+<img width="1404" alt="image" src="imgaes/layout_1.png">
+
+### 7.6 Customizing the layout
+#### sky130_vsdinv cell creation
+
+Lets design a custom cell and include in library and get it in final layout.
+clone the vsdcelldesign repo using following command
+```
+$ git clone https://github.com/nickson-jose/vsdstdcelldesign
+```
+
+<img width="875" alt="image" src="https://user-images.githubusercontent.com/110079648/187428540-c5fc6ace-76d6-45d0-8133-4dccb649a1b3.png">
+
+<img width="603" alt="image" src="https://user-images.githubusercontent.com/110079648/187429095-09758379-48fb-435a-bf32-5f5d5b0c232c.png">
+
+copy sky130A.tech to vsdstdcelldesign directory 
+
+```
+$ magic -T sky130A.tech sky130_inv.mag 
+```
+
+#### layout of inverter cell
+
+<img width="1401" alt="image" src="https://user-images.githubusercontent.com/110079648/187430540-b10c0584-7e3a-42d0-a8ac-1829bdf1ef0b.png">
+
+#### Generating lef file
+
+in tkcon terminal type the following command to generate **.lef** file
+
+```
+% lef write sky130_vsdinv
+```
+
+<img width="499" alt="image" src="https://user-images.githubusercontent.com/110079648/187432010-5506b422-3aac-4f9d-a6b5-9d25019be775.png">
+
+Copy the generated lef file to designs/iiit_pwm_gen/src
+Also copy lib files from vsdcelldesign/libs to designs/iiit_pwm_gen/src
+
+<img width="1396" alt="image" src="https://user-images.githubusercontent.com/110079648/187434252-1ef1d250-157d-4298-b24b-4b350fd1cba7.png">
+
+
+
 ## Contributors 
 
 - **B Sathiya Naraayanan** 
