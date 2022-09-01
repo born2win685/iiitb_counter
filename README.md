@@ -283,7 +283,7 @@ clone the vsdcelldesign repo using following command
 $ git clone https://github.com/nickson-jose/vsdstdcelldesign
 ```
 <p align="center">
-  <img width="300" length ="400"  src="/images/git_clone.png">
+  <img  src="/images/git_clone.png">
 </p>
 
 copy sky130A.tech to vsdstdcelldesign directo.ry and run the following command
@@ -293,6 +293,8 @@ $ magic -T sky130A.tech sky130_inv.mag
 ```
 
 #### layout of inverter cell
+
+
 <p align="center">
   <img width="300" length ="400"  src="/images/layout_inverter.png">
 </p>
@@ -355,6 +357,7 @@ Type the following command  to include the additional lef (i.e sky130_vsdinv) in
 
 
 #### Synthesis
+
 Logic synthesis uses the RTL netlist to perform HDL technology mapping. The synthesis process is normally performed in two major steps:
 
 - GTECH Mapping – Consists of mapping the HDL netlist to generic gates what are used to perform logical optimization based on AIGERs and other topologies created from the generic mapped netlist.
@@ -380,13 +383,14 @@ The next step is to run the floorpla.The following command should be used.
 </p>
 
 **layout after floorplan**
+
 Run the following command in results/floorplan directory
 
 ```
 $ magic -T /home/sathiyanarayanan/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech read ../../tmp/merged.nom.lef def read iiitb_counter.def &
 ```
 <p align="center">
-  <img  src="/images/lf.png">
+  <img  width="600" length ="500"  src="/images/lf.png">
 </p>
 
 
