@@ -270,8 +270,9 @@ $ magic -T /home/sathiyanarayanan/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.
   ```
 layout will be open in new window
 #### layout - without sky130_vsdinv
-
-<img width="1404" alt="image" src="imgaes/layout_1.png">
+<p align="center">
+  <img width="600" length ="500"  src="/images/layout_1.png">
+</p>
 
 ### 7.6 Customizing the layout
 #### sky130_vsdinv cell creation
@@ -281,38 +282,28 @@ clone the vsdcelldesign repo using following command
 ```
 $ git clone https://github.com/nickson-jose/vsdstdcelldesign
 ```
-
-<img width="875" alt="image" src="https://user-images.githubusercontent.com/110079648/187428540-c5fc6ace-76d6-45d0-8133-4dccb649a1b3.png">
-
-<img width="603" alt="image" src="https://user-images.githubusercontent.com/110079648/187429095-09758379-48fb-435a-bf32-5f5d5b0c232c.png">
-
-copy sky130A.tech to vsdstdcelldesign directory 
+copy sky130A.tech to vsdstdcelldesign directo.ry and run the following command
 
 ```
 $ magic -T sky130A.tech sky130_inv.mag 
 ```
 
 #### layout of inverter cell
-
-<img width="1401" alt="image" src="https://user-images.githubusercontent.com/110079648/187430540-b10c0584-7e3a-42d0-a8ac-1829bdf1ef0b.png">
+<p align="center">
+  <img width="300" length ="400"  src="/images/layout_inverter.png">
+</p>
 
 #### Generating lef file
-
-in tkcon terminal type the following command to generate **.lef** file
+Type the following command in tkcon terminal to generate **.lef** file
 
 ```
 % lef write sky130_vsdinv
 ```
+Copy the generated lef file and the lib files from vsdcelldesign/libs to designs/iiit_counter/src.
 
-<img width="499" alt="image" src="https://user-images.githubusercontent.com/110079648/187432010-5506b422-3aac-4f9d-a6b5-9d25019be775.png">
-
-Copy the generated lef file to designs/iiit_pwm_gen/src
-Also copy lib files from vsdcelldesign/libs to designs/iiit_pwm_gen/src
-
-<img width="1396" alt="image" src="https://user-images.githubusercontent.com/110079648/187434252-1ef1d250-157d-4298-b24b-4b350fd1cba7.png">
-
-
-
+<p align="center">
+  <img  src="/images/copy_files.png">
+</p>
 ## Contributors 
 
 - **B Sathiya Naraayanan** 
