@@ -128,7 +128,7 @@ Using the created vcd file,we can get the functional characteristics using gtkwa
 
 ## Layout
 
-### 7.3 Openlane
+### Openlane
 OpenLane is an automated RTL to GDSII flow based on several components including OpenROAD, Yosys, Magic, Netgen, CVC, SPEF-Extractor, CU-GR, Klayout and a number of custom scripts for design exploration and optimization. The flow performs full ASIC implementation steps from RTL all the way down to GDSII.
 
 more at https://github.com/The-OpenROAD-Project/OpenLane
@@ -176,7 +176,7 @@ $   sudo make test
 ```
 It takes a while to complete.If it ends with **Basic test passed** ,then openLane is installed succesfully.
 
-### 7.4 Magic
+### Magic
 Magic is a venerable VLSI layout tool, written in the 1980's at Berkeley by John Ousterhout, now famous primarily for writing the scripting interpreter language Tcl. Due largely in part to its liberal Berkeley open-source license, magic has remained popular with universities and small companies. The open-source license has allowed VLSI engineers with a bent toward programming to implement clever ideas and help magic stay abreast of fabrication technology. However, it is the well thought-out core algorithms which lend to magic the greatest part of its popularity. Magic is widely cited as being the easiest tool to use for circuit layout, even for people who ultimately rely on commercial tools for their product design flow.
 
 More about magic at http://opencircuitdesign.com/magic/index.html
@@ -205,7 +205,7 @@ $   sudo make install
 ```
 We can check if it is installed properly by typing **magic** in the  terminal.
 
-### 7.5 Generating Layout with existing library cells
+### Generating Layout with existing library cells
 
 
 Open terminal in home directory
@@ -274,7 +274,7 @@ layout will be open in new window
   <img width="600" length ="500"  src="/images/layout_1.png">
 </p>
 
-### 7.6 Customizing the layout
+### Customizing the layout
 #### sky130_vsdinv cell creation
 
 Lets design a custom cell and include in library and get it in final layout.
@@ -282,6 +282,10 @@ clone the vsdcelldesign repo using following command
 ```
 $ git clone https://github.com/nickson-jose/vsdstdcelldesign
 ```
+<p align="center">
+  <img width="300" length ="400"  src="/images/git_clone.png">
+</p>
+
 copy sky130A.tech to vsdstdcelldesign directo.ry and run the following command
 
 ```
@@ -299,11 +303,163 @@ Type the following command in tkcon terminal to generate **.lef** file
 ```
 % lef write sky130_vsdinv
 ```
+
+<p align="center">
+  <img  src="/images/writing.png">
+</p>
+
+
 Copy the generated lef file and the lib files from vsdcelldesign/libs to designs/iiit_counter/src.
 
 <p align="center">
   <img  src="/images/copy_files.png">
 </p>
+
+
+
+
+### Generating Layout which inculdes custom made sky130_vsdinv
+
+#### Openlane
+
+Type the following in Openlane directory
+```
+$ make mount
+```
+The following command can be used to run in interactive mode
+
+```
+$ ./flow.tcl -interactive
+```
+
+Loading the package file
+
+```
+% package require openlane 0.9
+```
+
+ preparing design to run
+
+```
+% prep -design iiitb_counter
+```
+Type the following command  to include the additional lef (i.e sky130_vsdinv) into the flow:
+
+```
+% set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+% add_lefs -src $lefs
+```
+<p align="center">
+  <img  src="/images/l_1.png">
+</p>
+
+
+#### Synthesis
+Logic synthesis uses the RTL netlist to perform HDL technology mapping. The synthesis process is normally performed in two major steps:
+
+- GTECH Mapping – Consists of mapping the HDL netlist to generic gates what are used to perform logical optimization based on AIGERs and other topologies created from the generic mapped netlist.
+
+- Technology Mapping – Consists of mapping the post-optimized GTECH netlist to standard cells described in the PDK
+
+Run the following command to synthesis
+```
+% run_synthesis
+```
+<p align="center">
+  <img  src="/images/l_2.png">
+</p>
+
+#### Floorplan
+The next step is to run the floorpla.The following command should be used.
+
+```
+% run_floorplan
+```
+<p align="center">
+  <img  src="/images/l_3.png">
+</p>
+
+**layout after floorplan**
+Run the following command in results/floorplan directory
+
+```
+$ magic -T /home/sathiyanarayanan/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech read ../../tmp/merged.nom.lef def read iiitb_counter.def &
+```
+<p align="center">
+  <img  src="/images/lf.png">
+</p>
+
+
+#### Placement
+
+Use the following command for placement
+```
+% run_placement
+```
+<p align="center">
+  <img  src="/images/l_4.png">
+</p>
+
+**layout after placement**
+
+Run the following command in results/placement directory
+
+```
+$ magic -T /home/sathiyanarayanan/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech read ../../tmp/merged.nom.lef def read iiitb_counter.def &
+```
+
+<p align="center">
+  <img  src="/images/lp.png">
+</p>
+
+
+
+#### CTS
+
+Clock tree synteshsis is used to create the clock distribution network that is used to deliver the clock to all sequential elements. The main goal is to create a network with minimal skew across the chip. H-trees are a common network topology that is used to achieve this goal.
+
+run the following command to perform CTS
+```
+% run_cts
+```
+<p align="center">
+  <img  src="/images/l_5.png">
+</p>
+
+
+
+#### Routing
+
+Run the following command to run the routing
+
+```
+% run_routing
+```
+
+<p align="center">
+  <img  src="/images/l_6.png">
+</p>
+
+
+**layout after Routing**
+
+
+Run the following command in results/routing directory
+
+```
+$ magic -T /home/sathiyanarayanan/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech read ../../tmp/merged.nom.lef def read iiitb_counter.def &
+```
+
+<p align="center">
+  <img  src="/images/lr1.png">
+</p>
+
+
+<p align="center">
+  <img  src="/images/lr2.png">
+</p>
+
+
 ## Contributors 
 
 - **B Sathiya Naraayanan** 
