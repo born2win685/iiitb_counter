@@ -306,7 +306,7 @@ $ magic -T sky130A.tech sky130_inv.mag
 
 
 <p align="center">
-  <img width="300" length ="400"  src="/images/layout_inverter.png">
+  <img   src="/images/layout_inverter.png">
 </p>
 
 #### Generating lef file
@@ -400,7 +400,7 @@ Run the following command in results/floorplan directory
 $ magic -T /home/sathiyanarayanan/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech read ../../tmp/merged.nom.lef def read iiitb_counter.def &
 ```
 <p align="center">
-  <img  width="600" length ="500"  src="/images/lf.png">
+  <img   src="/images/lf.png">
 </p>
 
 
