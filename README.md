@@ -49,11 +49,15 @@ $   iverilog iiitb_counter.v iiitb_counter_tb.v
 $   ./a.out
 $   gtkwave iiitb_counter.vcd
 ```
+<p align="center">
+  <img  src="/images/gtk_o1.png">
+</p>
+
 
 ## Functional Characteristics
 Simulation Results
 <p align="center">
-  <img  src="/images/gtkwave_counter.png">
+  <img  src="/images/o1.png">
 </p>
 
 
@@ -104,7 +108,7 @@ By running the following command in terminal,we can get the required ouput
 
 ### Output
 <p align="center">
-  <img  src="/images/gsl.png">
+  <img  src="/images/synth.png">
 </p>
 
 <p align="center">
@@ -121,9 +125,15 @@ iverilog -DFUNCTIONAL -DUNIT_DELAY=#1 iiitb_counter_netlist.v iiitb_counter_tb.v
 gtkwave iiitb_counter_tb_synth.vcd
 
 ```
+
+<p align="center">
+  <img  src="/images/gtk_o2.png">
+</p>
+
+
 Using the created vcd file,we can get the functional characteristics using gtkwave,which is as follows
 <p align="center">
-  <img  src="/images/gtkwave_counter_synth.png">
+  <img  src="/images/o2.png">
 </p>
 
 ## Layout
