@@ -2,24 +2,13 @@
 
 # Table of contents
  - [1.Introduction](#Introduction)<br>
- - [2.Application of Gray Counter](#Applications)<br>
- - [3. Verilog Implementation of Gray Code Counter](#3-Verilog-Implementation-of-Gray-Code-Counter)<br>
- - [4. Functional Simulation](#4-Functional-Simulation)<br>
-   - [4.1. Softwares Used](#41-Softwares-Used)<br>
-   - [4.2. Simulation Results](#42-Simulation-Results)<br>
- - [5. Synthesis](#5-Synthesis)<br>
-   - [5.1. Softwares Used](#51-Softwares-Used)<br>
-   - [5.2. Run Synthesis](#52-Run-Synthesis)<br>
- - [6. Gate Level Simulation GLS](#6-Gate-Level-Simulation-GLS)<br>
- - [7. Creating Custom Cell](#7-Creating-Custom-Cell)
- - [8. Physical Design](#8-Physical-Design)<br>
-   - [8.1. Software Used](#81-Softwares-Used)
-   - [8.2. Preperation for Running OpenLane](#82-Preperation-for-Running-OpenLane)
-   - [8.3. Synthesis](#83-Synthesis)
-   - [8.4. Floorplan](#84-Floorplan)
-   - [8.5. Placement](#85-Placement)
-   - [8.6. Clock Tree Synthesis](#86-Clock-Tree-Synthesis)
-   - [8.7 Routing](#87-Routing)
+ - [2.Applications](#Applications)<br>
+ - [3.Blocked Diagram of Counter](#Blocked Diagram of Counter)<br>
+ - [GTKWave and iverilog](#GTKWave and iverilog)<br>
+   - [Installing iverilog and GTKWave](##Installing iverilog and GTKWave)<br>
+
+
+
  - [Author](#9-Author)
  - [Acknowledgement](#10-Acknowledgement)
  - [Contact Information](#11-Contact-Information)
@@ -48,9 +37,9 @@ Counters can be used for anything that counts.The following are the most common 
   <img width="600" length ="500" src="/images/counter.png">
 </p>
 
-# About iverilog 
-Icarus Verilog is an implementation of the Verilog hardware description language.
-# About GTKWave
+# GTKWave and iverilog
+Icarus Verilog is an implementation of the Verilog hardware description language
+
 GTKWave is a fully featured GTK+ v1. 2 based wave viewer for Unix and Win32 which reads Ver Structural Verilog Compiler generated AET files as well as standard Verilog VCD/EVCD files and allows their viewing
 
 ## Installing iverilog and GTKWave
