@@ -259,7 +259,7 @@ After creating those files,copy the iiitb_counter.v file used prior to the one c
 Get back to Openlane directory and do the following.
 ```
 $   sudo make mount
-%   ./flow.tcl -design iiitb_pwm_gen
+%   ./flow.tcl -design iiitb_counter
 ```
 We are going to use magic for viewing the layout.Type the following in terminal.
 ```
@@ -279,6 +279,7 @@ $   cd results/final/def
 $ magic -T /home/sathiyanarayanan/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech read ../../tmp/merged.nom.lef def read iiitb_counter.def &
   ```
 layout will be open in new window
+
 #### layout - without sky130_vsdinv
 <p align="center">
   <img width="600" length ="500"  src="/images/layout_1.png">
@@ -296,7 +297,7 @@ $ git clone https://github.com/nickson-jose/vsdstdcelldesign
   <img  src="/images/git_clone.png">
 </p>
 
-copy sky130A.tech to vsdstdcelldesign directo.ry and run the following command
+copy sky130A.tech to vsdstdcelldesign directory and run the following command
 
 ```
 $ magic -T sky130A.tech sky130_inv.mag 
@@ -309,6 +310,16 @@ $ magic -T sky130A.tech sky130_inv.mag
   <img   src="/images/layout_inverter.png">
 </p>
 
+Now, to extract the spice netlist, type the following commands in the tcl console. Here, parasitic capacitances and resistances of the inverter is extracted by  `cthresh 0 rthresh 0`.
+```
+extract all
+ext2spice cthresh 0 rthresh 0
+ext2spice
+```
+<p align="center">
+  <img src="/images/spice_extract.png">
+</p><br>
+
 #### Generating lef file
 Type the following command in tkcon terminal to generate **.lef** file
 
@@ -320,6 +331,76 @@ Type the following command in tkcon terminal to generate **.lef** file
   <img  src="/images/writing.png">
 </p>
 
+
+The extracted lef file is shown below.
+```
+VERSION 5.7 ;
+  NOWIREEXTENSIONATPIN ON ;
+  DIVIDERCHAR "/" ;
+  BUSBITCHARS "[]" ;
+MACRO sky130_inv
+  CLASS CORE ;
+  FOREIGN sky130_inv ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 1.380 BY 2.720 ;
+  SITE unithd ;
+  PIN A
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.165600 ;
+    PORT
+      LAYER li1 ;
+        RECT 0.060 1.180 0.510 1.690 ;
+    END
+  END A
+  PIN Y
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    ANTENNADIFFAREA 0.287800 ;
+    PORT
+      LAYER li1 ;
+        RECT 0.760 1.960 1.100 2.330 ;
+        RECT 0.880 1.690 1.050 1.960 ;
+        RECT 0.880 1.180 1.330 1.690 ;
+        RECT 0.880 0.760 1.050 1.180 ;
+        RECT 0.780 0.410 1.130 0.760 ;
+    END
+  END Y
+  PIN VPWR
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER nwell ;
+        RECT -0.200 1.140 1.570 3.040 ;
+      LAYER li1 ;
+        RECT -0.200 2.580 1.430 2.900 ;
+        RECT 0.180 2.330 0.350 2.580 ;
+        RECT 0.100 1.970 0.440 2.330 ;
+      LAYER mcon ;
+        RECT 0.230 2.640 0.400 2.810 ;
+        RECT 1.000 2.650 1.170 2.820 ;
+      LAYER met1 ;
+        RECT -0.200 2.480 1.570 2.960 ;
+    END
+  END VPWR
+  PIN VGND
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER li1 ;
+        RECT 0.100 0.410 0.450 0.760 ;
+        RECT 0.150 0.210 0.380 0.410 ;
+        RECT 0.000 -0.150 1.460 0.210 ;
+      LAYER mcon ;
+        RECT 0.210 -0.090 0.380 0.080 ;
+        RECT 1.050 -0.090 1.220 0.080 ;
+      LAYER met1 ;
+        RECT -0.110 -0.240 1.570 0.240 ;
+    END
+  END VGND
+END sky130_inv
+END LIBRARY
+```
 
 Copy the generated lef file and the lib files from vsdcelldesign/libs to designs/iiit_counter/src.
 
@@ -406,7 +487,15 @@ $ magic -T /home/sathiyanarayanan/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.
 
 #### Placement
 
-Use the following command for placement
+Now, to extract the spice netlist, type the following commands in the tcl console. Here, parasitic capacitances and resistances of the inverter is extracted by  `cthresh 0 rthresh 0`.
+```
+extract all
+ext2spice cthresh 0 rthresh 0
+ext2spice
+```
+<p align="center">
+  <img src="/images/inv2.png">
+</p><br>Use the following command for placement
 ```
 % run_placement
 ```
