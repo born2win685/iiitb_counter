@@ -446,6 +446,11 @@ Type the following command  to include the additional lef (i.e sky130_vsdinv) in
   <img  src="/images/l_1.png">
 </p>
 
+Now, we can observe that the `sky130_vsdinv` is included in `merged.nom.lef` file.
+<p align="center">
+  <img src="/images/merge_nom.png">
+</p><br>
+
 
 #### Synthesis
 
@@ -462,6 +467,24 @@ Run the following command to synthesis
 <p align="center">
   <img  src="/images/l_2.png">
 </p>
+
+The stats are present in synthesized netlist in results folder. 
+
+<p align="center">
+  <img src="/images/synth_stat.png">
+</p><br>
+
+
+Here, we notice that our custom cell `sky130_vsdinv` is displayed in the netlist generated.
+<p align="center">
+  <img src="/images/vsd_synth.png">
+</p><br>
+
+Also, sta report post synthesis can be viewed by going to the location `logs\synthesis\2-sta.log`
+
+<p align="center">
+  <img src="/images/worst_slack.png">
+</p><br>
 
 #### Floorplan
 The next step is to run the floorpla.The following command should be used.
@@ -484,18 +507,18 @@ $ magic -T /home/sathiyanarayanan/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.
   <img   src="/images/lf.png">
 </p>
 
+Die Area and Core Area can be viewed in the `reports/floorplan` directory.
+<p align="center">
+  <img src="/images/die.png">
+</p><br>
+
+<p align="center">
+  <img src="/images/core.png">
+</p><br>
 
 #### Placement
 
-Now, to extract the spice netlist, type the following commands in the tcl console. Here, parasitic capacitances and resistances of the inverter is extracted by  `cthresh 0 rthresh 0`.
-```
-extract all
-ext2spice cthresh 0 rthresh 0
-ext2spice
-```
-<p align="center">
-  <img src="/images/inv2.png">
-</p><br>Use the following command for placement
+Use the following command for placement
 ```
 % run_placement
 ```
