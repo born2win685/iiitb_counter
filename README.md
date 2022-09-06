@@ -538,6 +538,13 @@ $ magic -T /home/sathiyanarayanan/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.
   <img  src="/images/lp.png">
 </p>
 
+<p align="center">
+  <img  src="/images/lp_zoom.png">
+</p>
+
+<p align="center">
+  <img  src="/images/placement_vsd.png">
+</p>
 
 
 #### CTS
@@ -552,6 +559,8 @@ run the following command to perform CTS
   <img  src="/images/l_5.png">
 </p>
 
+The netlist with clock buffers can be viewed by going to the location `results\cts\iiitb_counter.v`.
+And,the sta report post synthesis can be viewed by going to the location `logs\synthesis\12-cts.log`
 
 
 #### Routing
@@ -577,13 +586,14 @@ $ magic -T /home/sathiyanarayanan/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.
 ```
 
 <p align="center">
-  <img  src="/images/lr1.png">
+  <img  src="/images/lr.png">
 </p>
 
 
 <p align="center">
-  <img  src="/images/lr2.png">
+  <img  src="/images/lr_zoom.png">
 </p>
+
 
 
 ## Contributors 
