@@ -25,14 +25,14 @@
  - [Contact Information](#11-Contact-Information)
  - [References](#12-References)
 
-## Introduction
+# Introduction
 
 A counter is a device that stores the number of times an event has occured. An 8-bit counter can represent a maximum of
 256 values. It can count from 0-255. An 8-bit counter contains 8 JK flip-flops.
 
 
 
-## Applications
+# Applications
 
 Counters can be used for anything that counts.The following are the most common applications
 
@@ -42,20 +42,20 @@ Counters can be used for anything that counts.The following are the most common 
 - Analog to Digital Conversion
 - Triangular Wave Generator
 
-## Blocked Diagram of Counter
+# Blocked Diagram of Counter
 
 <p align="center">
   <img width="600" length ="500" src="/images/counter.png">
 </p>
 
-## About iverilog 
+# About iverilog 
 Icarus Verilog is an implementation of the Verilog hardware description language.
-## About GTKWave
+# About GTKWave
 GTKWave is a fully featured GTK+ v1. 2 based wave viewer for Unix and Win32 which reads Ver Structural Verilog Compiler generated AET files as well as standard Verilog VCD/EVCD files and allows their viewing
 
-### Installing iverilog and GTKWave
+## Installing iverilog and GTKWave
 
-#### For Ubuntu
+### For Ubuntu
 
 Open your terminal and type the following to install iverilog and GTKWave
 ```
@@ -64,7 +64,7 @@ $   sudo apt-get install iverilog gtkwave
 ```
 
 
-### Functional Simulation
+## Functional Simulation
 To clone the Repository and download the Netlist files for Simulation, enter the following commands in your terminal.
 ```
 $   sudo apt install -y git
@@ -79,7 +79,7 @@ $   gtkwave iiitb_counter.vcd
 </p>
 
 
-## Functional Characteristics
+# Functional Characteristics
 Simulation Results
 <p align="center">
   <img  src="/images/o1.png">
@@ -87,9 +87,9 @@ Simulation Results
 
 
 
-## Synthesis of verilog code
+# Synthesis of verilog code
 
-### About Yosys
+## About Yosys
 Yosys is a framework for Verilog RTL synthesis. It currently has extensive Verilog-2005 support and provides a basic set of synthesis algorithms for various application domains.
 
 - more at https://yosyshq.net/yosys/
@@ -102,7 +102,7 @@ https://github.com/YosysHQ/yosys
 
  
 
-### Synthesising process
+## Synthesising process
 
 The commands to run synthesis in yosys are given below. First create an yosys script `yosys_run.sh` and paste the below commands.
 ```
@@ -131,7 +131,7 @@ By running the following command in terminal,we can get the required ouput
  yosys -s yosys_run.sh
 ```
 
-### Output
+## Output
 <p align="center">
   <img  src="/images/synth.png">
 </p>
@@ -140,7 +140,7 @@ By running the following command in terminal,we can get the required ouput
   <img width="600" length ="500"  src="/images/stat.png">
 </p>
 
-## Gate level Simulation
+# Gate level Simulation
 
 GLS stands for gate level simulation. When we write the RTL code, we test it by giving it some stimulus through the testbench and check it for the desired specifications. Similarly, we run the netlist as the design under test (dut) with the same testbench. Gate level simulation is done to verify the logical correctness of the design after synthesis. Also, it ensures the timing of the design.The same test becnch was used here,but the vcd file's name is changed to differentiate between the old file.
 Commands to run the GLS are given below.
@@ -161,13 +161,13 @@ Using the created vcd file,we can get the functional characteristics using gtkwa
   <img  src="/images/o2.png">
 </p>
 
-## Layout
+# Layout
 
-### Openlane
+## Openlane
 OpenLane is an automated RTL to GDSII flow based on several components including OpenROAD, Yosys, Magic, Netgen, CVC, SPEF-Extractor, CU-GR, Klayout and a number of custom scripts for design exploration and optimization. The flow performs full ASIC implementation steps from RTL all the way down to GDSII.
 
 more at https://github.com/The-OpenROAD-Project/OpenLane
-#### Installation instructions 
+### Installation instructions 
 ```
 $   apt install -y build-essential python3 python3-venv python3-pip
 ```
@@ -211,7 +211,7 @@ $   sudo make test
 ```
 It takes a while to complete.If it ends with **Basic test passed** ,then openLane is installed succesfully.
 
-### Magic
+## Magic
 Magic is a venerable VLSI layout tool, written in the 1980's at Berkeley by John Ousterhout, now famous primarily for writing the scripting interpreter language Tcl. Due largely in part to its liberal Berkeley open-source license, magic has remained popular with universities and small companies. The open-source license has allowed VLSI engineers with a bent toward programming to implement clever ideas and help magic stay abreast of fabrication technology. However, it is the well thought-out core algorithms which lend to magic the greatest part of its popularity. Magic is widely cited as being the easiest tool to use for circuit layout, even for people who ultimately rely on commercial tools for their product design flow.
 
 More about magic at http://opencircuitdesign.com/magic/index.html
@@ -240,7 +240,7 @@ $   sudo make install
 ```
 We can check if it is installed properly by typing **magic** in the  terminal.
 
-### Generating Layout with existing library cells
+## Generating Layout with existing library cells
 
 
 Open terminal in home directory
@@ -305,13 +305,13 @@ $ magic -T /home/sathiyanarayanan/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.
   ```
 layout will be open in new window
 
-#### layout - without sky130_vsdinv
+### layout - without sky130_vsdinv
 <p align="center">
   <img width="600" length ="500"  src="/images/layout_1.png">
 </p>
 
-### Customizing the layout
-#### sky130_vsdinv cell creation
+## Customizing the layout
+### sky130_vsdinv cell creation
 
 Lets design a custom cell and include in library and get it in final layout.
 clone the vsdcelldesign repo using following command
@@ -328,7 +328,7 @@ copy sky130A.tech to vsdstdcelldesign directory and run the following command
 $ magic -T sky130A.tech sky130_inv.mag 
 ```
 
-#### layout of inverter cell
+### layout of inverter cell
 
 
 <p align="center">
@@ -345,7 +345,7 @@ ext2spice
   <img src="/images/spice_extract.png">
 </p><br>
 
-#### Generating lef file
+### Generating lef file
 Type the following command in tkcon terminal to generate **.lef** file
 
 ```
@@ -436,9 +436,9 @@ Copy the generated lef file and the lib files from vsdcelldesign/libs to designs
 
 
 
-### Generating Layout which inculdes custom made sky130_vsdinv
+## Generating Layout which inculdes custom made sky130_vsdinv
 
-#### Openlane
+### Openlane
 
 Type the following in Openlane directory
 ```
@@ -477,7 +477,7 @@ Now, we can observe that the `sky130_vsdinv` is included in `merged.nom.lef` fil
 </p><br>
 
 
-#### Synthesis
+### Synthesis
 
 Logic synthesis uses the RTL netlist to perform HDL technology mapping. The synthesis process is normally performed in two major steps:
 
@@ -511,7 +511,7 @@ Also, sta report post synthesis can be viewed by going to the location `logs\syn
   <img src="/images/worst_slack.png">
 </p><br>
 
-#### Floorplan
+### Floorplan
 The next step is to run the floorpla.The following command should be used.
 
 ```
@@ -541,7 +541,7 @@ Die Area and Core Area can be viewed in the `reports/floorplan` directory.
   <img src="/images/core.png">
 </p><br>
 
-#### Placement
+### Placement
 
 Use the following command for placement
 ```
@@ -572,7 +572,7 @@ $ magic -T /home/sathiyanarayanan/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.
 </p>
 
 
-#### CTS
+### CTS
 
 Clock tree synteshsis is used to create the clock distribution network that is used to deliver the clock to all sequential elements. The main goal is to create a network with minimal skew across the chip. H-trees are a common network topology that is used to achieve this goal.
 
@@ -588,7 +588,7 @@ The netlist with clock buffers can be viewed by going to the location `results\c
 And,the sta report post synthesis can be viewed by going to the location `logs\synthesis\12-cts.log`
 
 
-#### Routing
+### Routing
 
 Run the following command to run the routing
 
@@ -621,24 +621,24 @@ $ magic -T /home/sathiyanarayanan/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.
 
 
 
-## Contributors 
+# Contributors 
 
 - **B Sathiya Naraayanan** 
 - **Kunal Ghosh** 
 
 
 
-## Acknowledgments
+# Acknowledgments
 
 
 - Kunal Ghosh, Director, VSD Corp. Pvt. Ltd.
 
-## Contact Information
+# Contact Information
 
 - B Sathiya Naraayanan, IMT2020534, International Institute of Information Technology, Bangalore  ,Sathiya.Naraayanan@iiitb.ac.in
 - Kunal Ghosh, Director, VSD Corp. Pvt. Ltd. kunalghosh@gmail.com
 
-## References
+# References
 
 - [Fastlad tutorial](https://www.instructables.com/Using-Falstads-Circuit-Simulator/)
 - [Counters tutorial](https://www.youtube.com/watch?v=iaIu5SYmWVM&list=PLBlnK6fEyqRjMH3mWf6kwqiTbT798eAOm&index=179)
