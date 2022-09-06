@@ -1,7 +1,7 @@
 # iiitb_counter
 
 # Table of contents
- - [1. Introduction](#1-Introduction)
+ - [ Introduction](#1-Introduction)
  - [2. Application of Gray Counter](#2-Applications)<br>
  - [3. Verilog Implementation of Gray Code Counter](#3-Verilog-Implementation-of-Gray-Code-Counter)<br>
  - [4. Functional Simulation](#4-Functional-Simulation)<br>
