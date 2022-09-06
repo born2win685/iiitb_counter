@@ -1,7 +1,7 @@
 # iiitb_counter
 
 # Table of contents
- - [Introduction](#1-Introduction)
+ - [Introduction](#Introduction)
  - [2. Application of Gray Counter](#2-Applications)<br>
  - [3. Verilog Implementation of Gray Code Counter](#3-Verilog-Implementation-of-Gray-Code-Counter)<br>
  - [4. Functional Simulation](#4-Functional-Simulation)<br>
@@ -290,7 +290,7 @@ We are going to use magic for viewing the layout.Type the following in terminal.
 ```
 $   cd OpenLane/designs/iiitb_counter/run
 $   ls
-```
+```-of-Gray-Counter
 select most recent run directoy from list
 ```
 $  cd RUN_2022.09.01_06.56.46
