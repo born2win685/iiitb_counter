@@ -3,9 +3,9 @@
 # Table of contents
  - [1.Introduction](#Introduction)<br>
  - [2.Applications](#Applications)<br>
- - [3.Blocked Diagram of Counter](#Blocked Diagram of Counter)<br>
- - [GTKWave and iverilog](#GTKWave and iverilog)<br>
-   - [Installing iverilog and GTKWave](##Installing iverilog and GTKWave)<br>
+ - [3.Block Diagram of Counter](#Block-Diagram-of-Counter)<br>
+ - [GTKWave and iverilog](#GTKWave-and-iverilog)<br>
+   - [Installing iverilog and GTKWave](##Installing-iverilog-and-GTKWave)<br>
 
 
 
@@ -31,7 +31,7 @@ Counters can be used for anything that counts.The following are the most common 
 - Analog to Digital Conversion
 - Triangular Wave Generator
 
-# Blocked Diagram of Counter
+# Block Diagram of Counter
 
 <p align="center">
   <img width="600" length ="500" src="/images/counter.png">
