@@ -622,6 +622,12 @@ $ magic -T /home/sathiyanarayanan/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.
 </p>
 
 <p align="center">
+  <img  src="/images/vsdinv_zoom.png">
+</p>
+
+The area of the chip is 4074.954 sq micrometers.
+
+<p align="center">
   <img  src="/images/area.png">
 </p>
 
