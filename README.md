@@ -1,18 +1,24 @@
 # iiitb_counter
 
 # Table of contents
- - [1.Introduction](#Introduction)<br>
- - [2.Applications](#Applications)<br>
- - [3.Block Diagram of Counter](#Block-Diagram-of-Counter)<br>
- - [GTKWave and iverilog](#GTKWave-and-iverilog)<br>
-   - [Installing iverilog and GTKWave](#Installing-iverilog-and-GTKWave)<br>
+ - [1. Introduction](#Introduction)<br>
+ - [2. Applications](#Applications)<br>
+ - [3. Block Diagram of Counter](#Block-Diagram-of-Counter)<br>
+ - [3. GTKWave and iverilog](#GTKWave-and-iverilog)<br>
+   - [3.1 Installing iverilog and GTKWave](#Installing-iverilog-and-GTKWave-for-Ubuntu)<br>
+   - [3.2 Functional Simulation](#Functional-Simulation)<br>
+   - [3.3 Functional Characteristics](#Functional-Characteristics)<br>
+ - [4. Synthesis of verilog code](#Synthesis-of-verilog-code)<br>
+    - [4.1 About Yosys](#About-Yosys)<br>
+    - [4.2 Synthesising process](#Synthesising-process)<br>
+    - [4.3 Ouput](#Output)<br>
+ - [5. Gate level Simulation](#Gate-level-Simulation)<br>
+ - [6. Layout](#Layout)<br>
+    - [6.1 Openlane](#Openlane)<br>
+    - [6.2 Magic](#Magic)<br>
+    - [6.3 Generating Layout with existing library cells](#Generating-Layout-with-existing-library-cells)<br>
+ - []()<br>
 
-
-
- - [Author](#9-Author)
- - [Acknowledgement](#10-Acknowledgement)
- - [Contact Information](#11-Contact-Information)
- - [References](#12-References)
 
 # Introduction
 
@@ -42,9 +48,7 @@ Icarus Verilog is an implementation of the Verilog hardware description language
 
 GTKWave is a fully featured GTK+ v1. 2 based wave viewer for Unix and Win32 which reads Ver Structural Verilog Compiler generated AET files as well as standard Verilog VCD/EVCD files and allows their viewing
 
-## Installing iverilog and GTKWave
-
-### For Ubuntu
+## Installing iverilog and GTKWave for Ubuntu
 
 Open your terminal and type the following to install iverilog and GTKWave
 ```
@@ -156,7 +160,8 @@ Using the created vcd file,we can get the functional characteristics using gtkwa
 OpenLane is an automated RTL to GDSII flow based on several components including OpenROAD, Yosys, Magic, Netgen, CVC, SPEF-Extractor, CU-GR, Klayout and a number of custom scripts for design exploration and optimization. The flow performs full ASIC implementation steps from RTL all the way down to GDSII.
 
 more at https://github.com/The-OpenROAD-Project/OpenLane
-### Installation instructions 
+
+**Installation instructions** 
 ```
 $   apt install -y build-essential python3 python3-venv python3-pip
 ```
@@ -215,7 +220,7 @@ $   sudo apt-get install libx11-dev
 $   sudo apt-get install tcl-dev tk-dev
 $   sudo apt-get install libcairo2-dev
 $   sudo apt-get install mesa-common-dev libglu1-mesa-dev
-$   sudo apt-get install libncurses-dev
+$   sudo apt-get install libncurses-layout without sky130_vsdinvdev
 ```
 **To install magic**
 goto home directory
@@ -279,7 +284,7 @@ We are going to use magic for viewing the layout.Type the following in terminal.
 ```
 $   cd OpenLane/designs/iiitb_counter/run
 $   ls
-```-of-Gray-Counter
+```
 select most recent run directoy from list
 ```
 $  cd RUN_2022.09.01_06.56.46
@@ -291,10 +296,11 @@ $   cd results/final/def
 
 ```
 $ magic -T /home/sathiyanarayanan/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech read ../../tmp/merged.nom.lef def read iiitb_counter.def &
-  ```
+
+```
 layout will be open in new window
 
-### layout - without sky130_vsdinv
+**layout without sky130_vsdinv**
 <p align="center">
   <img width="600" length ="500"  src="/images/layout_1.png">
 </p>
@@ -325,11 +331,12 @@ $ magic -T sky130A.tech sky130_inv.mag
 </p>
 
 Now, to extract the spice netlist, type the following commands in the tcl console. Here, parasitic capacitances and resistances of the inverter is extracted by  `cthresh 0 rthresh 0`.
+
 ```
 extract all
 ext2spice cthresh 0 rthresh 0
 ext2spice
-```
+``` 
 <p align="center">
   <img src="/images/spice_extract.png">
 </p><br>
@@ -347,6 +354,7 @@ Type the following command in tkcon terminal to generate **.lef** file
 
 
 The extracted lef file is shown below.
+
 ```
 VERSION 5.7 ;
   NOWIREEXTENSIONATPIN ON ;
@@ -414,6 +422,7 @@ MACRO sky130_inv
   END VGND
 END sky130_inv
 END LIBRARY
+
 ```
 
 Copy the generated lef file and the lib files from vsdcelldesign/libs to designs/iiit_counter/src.
