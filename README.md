@@ -5,7 +5,7 @@
  - [2.Applications](#Applications)<br>
  - [3.Block Diagram of Counter](#Block-Diagram-of-Counter)<br>
  - [GTKWave and iverilog](#GTKWave-and-iverilog)<br>
-   - [Installing iverilog and GTKWave](##Installing-iverilog-and-GTKWave)<br>
+   - [Installing iverilog and GTKWave](#Installing-iverilog-and-GTKWave)<br>
 
 
 
