@@ -1,24 +1,37 @@
 # iiitb_counter
 
 # Table of contents
- - [1. Introduction](#Introduction)<br>
- - [2. Applications](#Applications)<br>
- - [3. Block Diagram of Counter](#Block-Diagram-of-Counter)<br>
- - [3. GTKWave and iverilog](#GTKWave-and-iverilog)<br>
+ - [1 Introduction](#Introduction)<br>
+ - [2 Applications](#Applications)<br>
+ - [3 Block Diagram of Counter](#Block-Diagram-of-Counter)<br>
+ - [3 GTKWave and iverilog](#GTKWave-and-iverilog)<br>
    - [3.1 Installing iverilog and GTKWave](#Installing-iverilog-and-GTKWave-for-Ubuntu)<br>
    - [3.2 Functional Simulation](#Functional-Simulation)<br>
    - [3.3 Functional Characteristics](#Functional-Characteristics)<br>
- - [4. Synthesis of verilog code](#Synthesis-of-verilog-code)<br>
+ - [4 Synthesis of verilog code](#Synthesis-of-verilog-code)<br>
     - [4.1 About Yosys](#About-Yosys)<br>
     - [4.2 Synthesising process](#Synthesising-process)<br>
     - [4.3 Ouput](#Output)<br>
- - [5. Gate level Simulation](#Gate-level-Simulation)<br>
- - [6. Layout](#Layout)<br>
+ - [5 Gate level Simulation](#Gate-level-Simulation)<br>
+ - [6 Layout](#Layout)<br>
     - [6.1 Openlane](#Openlane)<br>
     - [6.2 Magic](#Magic)<br>
     - [6.3 Generating Layout with existing library cells](#Generating-Layout-with-existing-library-cells)<br>
- - []()<br>
-
+    - [6.4 Customizing the layout](#Customizing-the-layout)<br>
+       - [6.4.1 sky130_vsdinv cell creation](#sky130_vsdinv-cell-creation)<br>
+       - [6.4.2 layout of inverter cell](#layout-of-inverter-cell)<br>
+       - [6.4.3 Generating lef file](Generating-lef-file)<br>
+    - [6.5 Generating Layout which inculdes custom made sky130_vsdinv](#Generating-Layout-which-inculdes-custom-made-sky130_vsdinv)<br>
+       - [6.5.1 Openlane](#Openlane)<br>
+       - [6.5.2 Synthesis](#Synthesis)<br>
+       - [6.5.3 Floorplan](#Floorplan)<br>
+       - [6.5.4 Placement](#Placement)<br>
+       - [6.5.5 CTS](#CTS)<br>
+       - [6.5.6 Routing](#Routing)<br>
+ - [7 Contributors](#Contributors )<br>
+ - [8 Acknowledgments](#Acknowledgments)<br>
+ - [9 Contact Information](#Contact-Information)<br>
+ - [10 References](#References)<br>
 
 # Introduction
 
