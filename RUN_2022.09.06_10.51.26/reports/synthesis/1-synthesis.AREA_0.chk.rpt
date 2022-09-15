@@ -1,0 +1,20 @@
+
+23. Executing CHECK pass (checking for obvious problems).
+Checking module iiitb_counter...
+Warning: Wire iiitb_counter.\Qz [3] is used but has no driver.
+Warning: Wire iiitb_counter.\Qz [2] is used but has no driver.
+Warning: Wire iiitb_counter.\Qz [1] is used but has no driver.
+Warning: Wire iiitb_counter.\Qz [0] is used but has no driver.
+Warning: Wire iiitb_counter.\Qu [3] is used but has no driver.
+Warning: Wire iiitb_counter.\Qu [2] is used but has no driver.
+Warning: Wire iiitb_counter.\Qu [1] is used but has no driver.
+Warning: Wire iiitb_counter.\Qu [0] is used but has no driver.
+Warning: Wire iiitb_counter.\Q [7] is used but has no driver.
+Warning: Wire iiitb_counter.\Q [6] is used but has no driver.
+Warning: Wire iiitb_counter.\Q [5] is used but has no driver.
+Warning: Wire iiitb_counter.\Q [4] is used but has no driver.
+Warning: Wire iiitb_counter.\Q [3] is used but has no driver.
+Warning: Wire iiitb_counter.\Q [2] is used but has no driver.
+Warning: Wire iiitb_counter.\Q [1] is used but has no driver.
+Warning: Wire iiitb_counter.\Q [0] is used but has no driver.
+Found and reported 16 problems.

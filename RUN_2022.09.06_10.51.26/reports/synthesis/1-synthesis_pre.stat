@@ -1,0 +1,23 @@
+
+10. Printing statistics.
+
+=== iiitb_counter ===
+
+   Number of wires:                 33
+   Number of wire bits:             52
+   Number of public wires:           5
+   Number of public wire bits:      18
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 42
+     $_ANDNOT_                      12
+     $_DFFE_PN0P_                    4
+     $_DFF_PN0_                      4
+     $_NAND_                         3
+     $_NOR_                          2
+     $_ORNOT_                        5
+     $_OR_                           6
+     $_XNOR_                         2
+     $_XOR_                          4
+

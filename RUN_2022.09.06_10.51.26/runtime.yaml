@@ -1,0 +1,69 @@
+- status: 0 - openlane design prep
+  runtime_s: 1.35
+  runtime_ts: 0h0m1s355ms
+- status: 1 - synthesis - yosys
+  runtime_s: 0.81
+  runtime_ts: 0h0m0s815ms
+- status: 2 - sta - openroad
+  runtime_s: 0.4
+  runtime_ts: 0h0m0s403ms
+- status: 3 - floorplan initialization - openroad
+  runtime_s: 0.57
+  runtime_ts: 0h0m0s570ms
+- status: 4 - ioplace - openroad
+  runtime_s: 0.16
+  runtime_ts: 0h0m0s158ms
+- status: 5 - tap/decap insertion - openroad
+  runtime_s: 0.2
+  runtime_ts: 0h0m0s195ms
+- status: 6 - pdn generation - openroad
+  runtime_s: 0.4
+  runtime_ts: 0h0m0s399ms
+- status: 7 - global placement - openroad
+  runtime_s: 0.55
+  runtime_ts: 0h0m0s547ms
+- status: 8 - resizer design optimizations - openroad
+  runtime_s: 0.46
+  runtime_ts: 0h0m0s455ms
+- status: 9 - write verilog - openroad
+  runtime_s: 0.17
+  runtime_ts: 0h0m0s173ms
+- status: 10 - remove buffers from nets - openlane
+  runtime_s: 0.23
+  runtime_ts: 0h0m0s229ms
+- status: 11 - detailed placement - openroad
+  runtime_s: 0.21
+  runtime_ts: 0h0m0s214ms
+- status: 12 - cts
+  runtime_s: 23.8
+  runtime_ts: 0h0m23s800ms
+- status: 13 - write verilog - openroad
+  runtime_s: 0.16
+  runtime_ts: 0h0m0s157ms
+- status: 14 - resizer timing optimizations - openroad
+  runtime_s: 0.46
+  runtime_ts: 0h0m0s460ms
+- status: 15 - write verilog - openroad
+  runtime_s: 0.17
+  runtime_ts: 0h0m0s166ms
+- status: 16 - remove buffers from nets - openlane
+  runtime_s: 0.22
+  runtime_ts: 0h0m0s216ms
+- status: 17 - detailed placement - openroad
+  runtime_s: 0.19
+  runtime_ts: 0h0m0s194ms
+- status: 18 - global routing - openroad
+  runtime_s: 0.53
+  runtime_ts: 0h0m0s528ms
+- status: 19 - fill insertion - openroad
+  runtime_s: 0.2
+  runtime_ts: 0h0m0s205ms
+- status: 20 - write verilog - openroad
+  runtime_s: 0.16
+  runtime_ts: 0h0m0s160ms
+- status: 21 - detailed_routing - openroad
+  runtime_s: 5.0
+  runtime_ts: 0h0m5s4ms
+- status: 22 - write verilog - openroad
+  runtime_s: 0.16
+  runtime_ts: 0h0m0s160ms

@@ -1,0 +1,35 @@
+
+24. Printing statistics.
+
+=== iiitb_counter ===
+
+   Number of wires:                 29
+   Number of wire bits:             42
+   Number of public wires:           5
+   Number of public wire bits:      18
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 40
+     sky130_fd_sc_hd__a21boi_2       1
+     sky130_fd_sc_hd__a31o_2         1
+     sky130_fd_sc_hd__a41o_2         1
+     sky130_fd_sc_hd__and3_2         1
+     sky130_fd_sc_hd__and4bb_2       1
+     sky130_fd_sc_hd__buf_1          1
+     sky130_fd_sc_hd__buf_2          8
+     sky130_fd_sc_hd__dfrtp_2        8
+     sky130_fd_sc_hd__inv_2          1
+     sky130_fd_sc_hd__nand2_2        3
+     sky130_fd_sc_hd__nor2_2         1
+     sky130_fd_sc_hd__o211a_2        2
+     sky130_fd_sc_hd__o21ba_2        1
+     sky130_fd_sc_hd__o31a_2         1
+     sky130_fd_sc_hd__or2_2          1
+     sky130_fd_sc_hd__or4_2          2
+     sky130_fd_sc_hd__or4bb_2        1
+     sky130_fd_sc_hd__xnor2_2        2
+     sky130_vsdinv                   3
+
+   Chip area for module '\iiitb_counter': 454.185600
+
