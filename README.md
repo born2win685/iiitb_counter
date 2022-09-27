@@ -641,10 +641,10 @@ Zoomed version of the cell.
   <img  src="/images/vsdinv_zoom.png">
 </p>
 
-The area of the chip is 4074.954 sq micrometers.
+The area of the chip is 3769.966 sq micrometers.
 
 <p align="center">
-  <img  src="/images/ar.png">
+  <img  src="/images/area.png">
 </p>
 
 # Contributors 
