@@ -507,7 +507,7 @@ Run the following command to synthesis
 The stats are present in synthesized netlist in results folder. 
 
 <p align="center">
-  <img src="/images/synth_stat.png">
+  <img src="/images/post_synth_stat.png">
 </p><br>
 
 Flip Flop ratio is as follows
