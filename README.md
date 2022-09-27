@@ -29,6 +29,7 @@
        - [6.5.5 CTS](#CTS)<br>
        - [6.5.6 Routing](#Routing)<br>
  - [7 Results](#Results)<br>
+    - [7.1 Post-Synthesis gate Count]
     - [7.1 Area](#Area)<br>
     - [7.2 Power](#Power)<br>
  - [8 Contributors](#Contributors )<br>
@@ -513,12 +514,6 @@ The stats are present in synthesized netlist in results folder.
   <img src="/images/post_synth_stat.png">
 </p><br>
 
-Flip Flop ratio is as follows
-
-```
- no.of flip flops / total no. of cells = 8/40
- flip flop ratio = 0.2 
-```
 
 
 Here, we notice that our custom cell `sky130_vsdinv` is displayed in the netlist generated.
@@ -649,7 +644,44 @@ Zoomed version of the cell.
 </p>
 
 
-# Results
+# Results 
+
+## Post Layout synthesis gate count
+
+<p align="center">
+  <img src="/images/post_synth_stat.png">
+</p><br>
+
+Gate Count = 40
+
+
+## Performance
+
+```
+$ sta <br>
+
+OpenSTA> read_liberty -max /home/bsn_685/Desktop/sem_5/asic/OpenLane/designs/iiitb_counter/src/sky130_fd_sc_hd__fast.lib <br>
+
+OpenSTA> read_liberty -min /home/bsn_685/Desktop/sem_5/asic/OpenLane/designs/iiitb_counter/src/sky130_fd_sc_hd__slow.lib <br>
+
+OpenSTA> read_verilog /home/bsn_685/Desktop/sem_5/asic/OpenLane/designs/iiitb_counter/runs/RUN_2022.09.27_13.19.39/results/routing/iiitb_counter.resized.v <br>        
+
+OpenSTA> link_design iiitb_counter <br>
+
+OpenSTA> read_sdc /home/bsn_685/Desktop/sem_5/asic/OpenLane/designs/iiitb_counter/runs/RUN_2022.09.27_13.19.39/results/cts/iiitb_counter.sdc <br>
+
+OpenSTA> read_spef /home/bsn_685/Desktop/sem_5/asic/OpenLane/designs/iiitb_counter/runs/RUN_2022.09.06_06.04.57/results/routing/iiitb_counter.nom.spef <br>
+
+OpenSTA> set_propagated_clock [all_clocks] <br>
+
+OpenSTA> report_checks <br>
+```
+
+![image](https://user-images.githubusercontent.com/62461290/192555217-b263a4e2-cad6-44e3-8682-bb0b70840aa5.png)<br>
+
+![image](https://user-images.githubusercontent.com/62461290/192554957-5c3adff3-850e-4f62-b842-7279bf1ebd6d.png)<br>
+
+<b><I> Performance = 1/(clock period - slack) = 1/(10 - 1.70)ns = 120.482Mhz </b></I><br>
 
 ## Area
 
@@ -659,13 +691,30 @@ The area of the chip is 3769.966 sq micrometers.
   <img  src="/images/area.png">
 </p>
 
-## Power
+## 4. Flop/standard cell ratio
 
-The total power consumed by the chip is 1.22 micro Watt
+<p align="center">
+  <img src="/images/post_synth_stat.png">
+</p><br>
+
+Flip Flop ratio is as follows
+
+```
+ no.of flip flops / total no. of cells = 8/40
+ flip flop ratio = 0.2 
+```
+
+## Power
 
 <p align="center">
   <img  src="/images/power.png">
 </p>
+
+<b><I> Internal Power = 0.529 uW (74.4%) </b></I><br>
+<b><I> Switching Power = 0.69 uW (25.6%) </b></I><br>
+<b><I> Leakage Power = 0.351 nW (0.00%) </b></I><br>
+<b><I> Total Power = 1.22 uW (100%) </b></I><br>
+
 
 
 # Contributors 
