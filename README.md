@@ -510,6 +510,13 @@ The stats are present in synthesized netlist in results folder.
   <img src="/images/synth_stat.png">
 </p><br>
 
+Flip Flop ratio is as follows
+
+```
+ no.of flip flops / total no. of cells = 8/40
+ flip flop ratio = 0.2 
+```
+
 
 Here, we notice that our custom cell `sky130_vsdinv` is displayed in the netlist generated.
 <p align="center">
