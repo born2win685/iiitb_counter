@@ -626,9 +626,6 @@ $ magic -T /home/sathiyanarayanan/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.
 </p>
 
 
-<p align="center">
-  <img  src="/images/lr_zoom.png">
-</p>
 
 we can locate sky130_vsdinv using cell manager 
 
