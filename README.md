@@ -28,10 +28,13 @@
        - [6.5.4 Placement](#Placement)<br>
        - [6.5.5 CTS](#CTS)<br>
        - [6.5.6 Routing](#Routing)<br>
- - [7 Contributors](#Contributors )<br>
- - [8 Acknowledgments](#Acknowledgments)<br>
- - [9 Contact Information](#Contact-Information)<br>
- - [10 References](#References)<br>
+ - [7 Results](#Results)<br>
+    - [7.1 Area](#Area)<br>
+    - [7.2 Power](#Power)<br>
+ - [8 Contributors](#Contributors )<br>
+ - [9 Acknowledgments](#Acknowledgments)<br>
+ - [10 Contact Information](#Contact-Information)<br>
+ - [11 References](#References)<br>
 
 # Introduction
 
@@ -645,11 +648,25 @@ Zoomed version of the cell.
   <img  src="/images/vsdinv_zoom.png">
 </p>
 
+
+# Results
+
+## Area
+
 The area of the chip is 3769.966 sq micrometers.
 
 <p align="center">
   <img  src="/images/area.png">
 </p>
+
+## Power
+
+The total power consumed by the chip is 1.22 micro Watt
+
+<p align="center">
+  <img  src="/images/power.png">
+</p>
+
 
 # Contributors 
 
