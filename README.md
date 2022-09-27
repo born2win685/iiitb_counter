@@ -29,9 +29,11 @@
        - [6.5.5 CTS](#CTS)<br>
        - [6.5.6 Routing](#Routing)<br>
  - [7 Results](#Results)<br>
-    - [7.1 Post-Synthesis gate Count]
-    - [7.1 Area](#Area)<br>
-    - [7.2 Power](#Power)<br>
+    - [7.1 Post Layout Synthesis gate Count](#Post-Layout-synthesis-gate-count)<br>
+    - [7.2 Area](#Area)<br>
+    - [7.3 Performance](#Performance)<br>
+    - [7.4 Flip-Flop to Standard cell ratio](#FlipFlop-to-Standard-cell-ratio)<br>
+    - [7.5 Power](#Power)<br>
  - [8 Contributors](#Contributors )<br>
  - [9 Acknowledgments](#Acknowledgments)<br>
  - [10 Contact Information](#Contact-Information)<br>
@@ -656,28 +658,38 @@ Zoomed version of the cell.
 Gate Count = 40
 ```
 
+## Area
+
+```
+The area of the chip is 3769.966 sq micrometers.
+```
+
+<p align="center">
+  <img  src="/images/area.png">
+</p>
+
 ## Performance
 
 ```
-$ sta <br>
+$ sta 
 
-OpenSTA> read_liberty -max /home/bsn_685/Desktop/sem_5/asic/OpenLane/designs/iiitb_counter/src/sky130_fd_sc_hd__fast.lib <br>
+OpenSTA> read_liberty -max /home/bsn_685/Desktop/sem_5/asic/OpenLane/designs/iiitb_counter/src/sky130_fd_sc_hd__fast.lib 
 
-OpenSTA> read_liberty -min /home/bsn_685/Desktop/sem_5/asic/OpenLane/designs/iiitb_counter/src/sky130_fd_sc_hd__slow.lib <br>
+OpenSTA> read_liberty -min /home/bsn_685/Desktop/sem_5/asic/OpenLane/designs/iiitb_counter/src/sky130_fd_sc_hd__slow.lib
 
-OpenSTA> read_verilog /home/bsn_685/Desktop/sem_5/asic/OpenLane/designs/iiitb_counter/runs/RUN_2022.09.27_18.01.44/results/routing/iiitb_counter.resized.v <br>        
+OpenSTA> read_verilog /home/bsn_685/Desktop/sem_5/asic/OpenLane/designs/iiitb_counter/runs/RUN_2022.09.27_18.01.44/results/routing/iiitb_counter.resized.v       
 
-OpenSTA> link_design iiitb_counter <br>
+OpenSTA> link_design iiitb_counter 
 
-OpenSTA> read_sdc /home/bsn_685/Desktop/sem_5/asic/OpenLane/designs/iiitb_counter/runs/RUN_2022.09.27_18.01.44/results/cts/iiitb_counter.sdc <br>
+OpenSTA> read_sdc /home/bsn_685/Desktop/sem_5/asic/OpenLane/designs/iiitb_counter/runs/RUN_2022.09.27_18.01.44/results/cts/iiitb_counter.sdc 
 
-OpenSTA> read_spef /home/bsn_685/Desktop/sem_5/asic/OpenLane/designs/iiitb_counter/runs/RUN_2022.09.27_18.01.44/results/routing/iiitb_counter.nom.spef <br>
+OpenSTA> read_spef /home/bsn_685/Desktop/sem_5/asic/OpenLane/designs/iiitb_counter/runs/RUN_2022.09.27_18.01.44/results/routing/iiitb_counter.nom.spef 
 
-OpenSTA> set_propagated_clock [all_clocks] <br>
+OpenSTA> set_propagated_clock [all_clocks]
 
-OpenSTA> report_checks <br>
+OpenSTA> report_checks 
 
-OpenSTA> report_clock_properties <br>
+OpenSTA> report_clock_properties
 ```
 <p align="center">
   <img src="/images/osta_1.png">
@@ -691,17 +703,9 @@ OpenSTA> report_clock_properties <br>
 Performance = 1/(clock period - slack) = 1/(65 - 51.21)ns = 72.516Mhz 
 ```
 
-## Area
 
-```
-The area of the chip is 3769.966 sq micrometers.
-```
 
-<p align="center">
-  <img  src="/images/area.png">
-</p>
-
-## 4. Flip-Flop to Standard cell ratio
+## FlipFlop to Standard cell ratio
 
 <p align="center">
   <img src="/images/post_synth_stat.png">
