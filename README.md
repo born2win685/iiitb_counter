@@ -728,10 +728,12 @@ report_checks -from _53_ -to _51_
 
 We can find the following from the above report,
 tsetup= 0.06 ns
-path delay = 1.88 ns
-The clock minimum = 0.06 + 1.88 = 1.94 ns
-Performance = 515.463 Mhz
+delay = 1.88 ns
+clock_network = 0.16 ns
+freq = 1( 0.06 + 1.88 - 0.18 ) = 1.76 ns
+Performance = 568.181 Mhz
 ```
+Alternate way of doing the same
 
 ```
 
