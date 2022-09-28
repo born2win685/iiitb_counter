@@ -705,7 +705,23 @@ Performance = 1/(clock period - slack) = 1/(65 - 51.21)ns = 72.516Mhz
 ```
 
 
+```
+read_liberty -max /home/bsn_685/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v56.lib
+read_liberty -min /home/bsn_685/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v56.lib
+read_verilog /home/bsn_685/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.ref/iiitb_counter.v
+link_design iiitb_counter
+read_sdc /home/bsn_685/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.ref/iiitb_counter.sdc
+read_spef /home/bsn_685/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.ref/iiitb_counter.spef
+set_propagated_clock [all_clocks]
+report_checks
+```
+<p align="center">
+  <img src="/images/performance.png">
+</p><br>
 
+```
+Performance = 1/(clock period - slack) = 1/(65 - 50.97)ns = 71.275 Mhz 
+```
 ## FlipFlop to Standard cell ratio
 
 <p align="center">
