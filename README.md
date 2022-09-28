@@ -742,8 +742,8 @@ Flip Flop ratio is as follows
 </p>
 
 ```
- Internal Power = 0.529 uW (74.4%) 
- Switching Power = 0.69 uW (25.6%)
+ Internal Power = 0.529 uW (43.3%) 
+ Switching Power = 0.69 uW (56.6%)
  Leakage Power = 0.351 nW (0.00%)
  Total Power = 1.22 uW (100%) 
 ```
