@@ -730,7 +730,7 @@ We can find the following from the above report,
 tsetup= 0.06 ns
 delay = 1.88 ns
 clock_network = 0.16 ns
-freq = 1( 0.06 + 1.88 - 0.18 ) = 1.76 ns
+freq = 1( 0.06 + 1.88 - 0.18 ) = 1/1.76 ns
 Performance = 568.181 Mhz
 ```
 Alternate way of doing the same
