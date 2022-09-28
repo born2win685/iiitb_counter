@@ -747,7 +747,7 @@ performance =568.181 Mhz
 ## FlipFlop to Standard cell ratio
 
 <p align="center">
-  <img src="/images/post_synth_stat.png">
+  <img src="/images/ffr.png">
 </p><br>
 
 Flip Flop ratio is as follows
