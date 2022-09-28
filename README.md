@@ -28,7 +28,7 @@
        - [6.5.4 Placement](#Placement)<br>
        - [6.5.5 CTS](#CTS)<br>
        - [6.5.6 Routing](#Routing)<br>
- - [7 Results](#Results)<br>
+ - [7 Results-Midterm](#Results)<br>
     - [7.1 Post Layout Synthesis gate Count](#Post-Layout-synthesis-gate-count)<br>
     - [7.2 Area](#Area)<br>
     - [7.3 Performance](#Performance)<br>
