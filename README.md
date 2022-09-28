@@ -701,7 +701,7 @@ OpenSTA> report_clock_properties
 </p><br>
 
 ```
-Performance = 1/(clock period - slack) = 1/(65 - 51.21)ns = 72.516Mhz 
+Calculation for reg to reg.
 ```
 
 
@@ -716,11 +716,13 @@ set_propagated_clock [all_clocks]
 report_checks
 ```
 <p align="center">
-  <img src="/images/performance.png">
+  <img src="/images/dff_sta1.png">
 </p><br>
 
+<p align="center">
+  <img src="/images/dff_sta2.png">
+</p><br>
 ```
-Performance = 1/(clock period - slack) = 1/(65 - 50.97)ns = 71.275 Mhz 
 ```
 ## FlipFlop to Standard cell ratio
 
