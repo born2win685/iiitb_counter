@@ -701,7 +701,7 @@ OpenSTA> report_clock_properties
 </p><br>
 
 ```
-Calculation for reg to reg.
+Performance = 1/(clock period - slack) = 1/(65 - 51.21)ns = 72.516Mhz 
 ```
 
 
@@ -712,17 +712,16 @@ read_verilog /home/bsn_685/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.ref/iii
 link_design iiitb_counter
 read_sdc /home/bsn_685/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.ref/iiitb_counter.sdc
 read_spef /home/bsn_685/Desktop/sem_5/asic/OpenLane/pdks/sky130A/libs.ref/iiitb_counter.spef
-set_propagated_clock [all_clocks]
-report_checks
+set_propagated_clock CK
+create_clock -name CK -period 10 {CK}
+report_checks -from _53_ -to _51_
 ```
 <p align="center">
-  <img src="/images/dff_sta1.png">
+  <img src="/images/performance.png">
 </p><br>
 
-<p align="center">
-  <img src="/images/dff_sta2.png">
-</p><br>
 ```
+Performance = 1/(clock period - slack) = 1/(65 - 50.97)ns = 71.275 Mhz 
 ```
 ## FlipFlop to Standard cell ratio
 
