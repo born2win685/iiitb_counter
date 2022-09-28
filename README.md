@@ -701,7 +701,7 @@ OpenSTA> report_clock_properties
 </p><br>
 
 ```
-Performance = 1/(clock period - slack) = 1/(65 - 51.21)ns = 72.516Mhz 
+Calculation for reg to reg.
 ```
 
 
@@ -717,11 +717,30 @@ create_clock -name CK -period 10 {CK}
 report_checks -from _53_ -to _51_
 ```
 <p align="center">
-  <img src="/images/performance.png">
+  <img src="/images/dff_sta1.png">
+</p><br>
+
+<p align="center">
+  <img src="/images/dff_sta2.png">
 </p><br>
 
 ```
-Performance = 1/(clock period - slack) = 1/(65 - 50.97)ns = 71.275 Mhz 
+
+We can find the following from the above report,
+tsetup= 0.06 ns
+path delay = 1.88 ns
+The clock minimum = 0.06 + 1.88 = 1.94 ns
+Performance = 515.463 Mhz
+```
+
+```
+
+Clock period = 10 ns
+slack = 8.24 ns
+
+performance =1/(10 - 8.24)ns =1/1.76
+
+performance =568.181 Mhz
 ```
 ## FlipFlop to Standard cell ratio
 
